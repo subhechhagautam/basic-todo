@@ -7,7 +7,11 @@ const taskroutes = require('./routes/taskroutes');
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', taskroutes);
+app.use('/api', require('./routes/taskroutes'));
+//app.use('/api', taskroutes);
+app.get('/', (req, res) => {
+    res.send('API is running');
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
