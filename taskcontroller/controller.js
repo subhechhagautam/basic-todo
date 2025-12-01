@@ -15,7 +15,7 @@ exports.getAllTasks = (req, res) => {
 exports.deleteTask = (req, res) => {
     const { taskId } = req.params;
 
-    conn.query("DELETE FROM task WHERE TaskID=?;", [taskId], (err, result) => {
+    conn.query("DELETE FROM task WHERE task_id=?;", [taskId], (err, result) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: "Internal Server Error" });

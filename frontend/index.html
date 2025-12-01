@@ -151,12 +151,10 @@
             if (!confirm('Are you sure you want to delete this task?')) {
                 return;
             }
-
             try {
                 const response = await fetch(`http://localhost:5000/api/tasks/${id}`, {
                     method: 'DELETE'
                 });
-
                 if (response.ok) {
                     const taskElement = document.querySelector(`[data-id="${id}"]`);
                     if (taskElement) {
